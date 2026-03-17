@@ -29,6 +29,24 @@ ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres:latest
 | `projectName` | Container name, workspace folder, and database name (`<name>_dev`) | `my-elixir-app` |
 | `postgresVersion` | PostgreSQL version | `17` |
 
+## Usage
+
+### CLI
+
+```bash
+devcontainer templates apply \
+  --template-id ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres \
+  --template-args '{"projectName": "my_app", "postgresVersion": "17"}'
+```
+
+### VS Code
+
+Open the command palette and run **Dev Containers: Add Dev Container Configuration Files...**, then search for the template by name or enter the full GHCR path.
+
+### Manual
+
+Copy the `.devcontainer/` directory from the relevant `src/` folder into your project and replace the `${templateOption:...}` placeholders with your values.
+
 ## Prerequisites
 
 Your project needs a `.tool-versions` file in the root:
