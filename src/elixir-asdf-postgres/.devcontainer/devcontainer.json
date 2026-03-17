@@ -21,6 +21,7 @@
   },
   "onCreateCommand": "bash .devcontainer/setup.sh",
   "remoteEnv": {
-    "DATABASE_HOST": "db"
+    "DATABASE_HOST": "db",
+    "LANG": "C.UTF-8"
   }
 }

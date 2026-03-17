@@ -37,7 +37,9 @@ echo "==> Setting up Hex and Rebar"
 mix local.hex --force
 mix local.rebar --force
 
-echo "==> Fetching dependencies..."
-mix deps.get
+if [ -e mix.exs ]; then
+  echo "==> Fetching dependencies..."
+  mix deps.get
+fi
 
 echo "==> Setup complete!"

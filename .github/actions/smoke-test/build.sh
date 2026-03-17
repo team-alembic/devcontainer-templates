@@ -30,7 +30,11 @@ if [ "${OPTION_PROPERTY}" != "" ] && [ "${OPTION_PROPERTY}" != "null" ] ; then
 
             echo "(!) Replacing '${OPTION_KEY}' with '${OPTION_VALUE}'"
             OPTION_VALUE_ESCAPED=$(sed -e 's/[]\/$*.^[]/\\&/g' <<<"${OPTION_VALUE}")
-            find ./ -type f -print0 | xargs -0 sed -i "s/${OPTION_KEY}/${OPTION_VALUE_ESCAPED}/g"
+            if sed --version >/dev/null 2>&1; then
+                find ./ -type f -print0 | xargs -0 sed -i "s/${OPTION_KEY}/${OPTION_VALUE_ESCAPED}/g"
+            else
+                find ./ -type f -print0 | xargs -0 sed -i '' "s/${OPTION_KEY}/${OPTION_VALUE_ESCAPED}/g"
+            fi
         done
     fi
 fi
@@ -44,6 +48,10 @@ if [ -d "${TEST_DIR}" ] ; then
     mkdir -p ${DEST_DIR}
     cp -Rp ${TEST_DIR}/* ${DEST_DIR}
     cp -Rp test/test-utils/* ${DEST_DIR}
+
+    if [ -f "${TEST_DIR}/.tool-versions" ]; then
+        cp -p "${TEST_DIR}/.tool-versions" "${SRC_DIR}/.tool-versions"
+    fi
 fi
 
 export DOCKER_BUILDKIT=1

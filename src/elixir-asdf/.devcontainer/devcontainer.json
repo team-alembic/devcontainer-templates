@@ -16,5 +16,8 @@
     },
     "ghcr.io/devcontainer-community/devcontainer-features/asdf-vm.com:1": {}
   },
-  "onCreateCommand": "bash .devcontainer/setup.sh"
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteEnv": {
+    "LANG": "C.UTF-8"
+  }
 }
