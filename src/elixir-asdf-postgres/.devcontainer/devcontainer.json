@@ -13,6 +13,8 @@
     }
   },
   "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/github-cli": {},
     "ghcr.io/devcontainers-extra/features/apt-packages:1": {
       "packages": "autoconf,m4,libwxgtk3.2-dev,libwxgtk-webview3.2-dev,libgl1-mesa-dev,libglu1-mesa-dev,libpng-dev,libssh-dev,unixodbc-dev,xsltproc,fop,libxml2-utils,libncurses-dev"
@@ -21,7 +23,10 @@
   },
   "onCreateCommand": "bash .devcontainer/setup.sh",
   "remoteEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+    "ANTHROPIC_AUTH_TOKEN": "${localEnv:ANTHROPIC_AUTH_TOKEN}",
     "DATABASE_HOST": "db",
-    "LANG": "C.UTF-8"
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8"
   }
 }

@@ -28,9 +28,20 @@ Default credentials:
 ## Included Tools
 
 - **asdf** for version management (reads `.tool-versions`)
+- **Claude Code CLI** (`claude`)
 - **GitHub CLI** (`gh`)
 - **Erlang/OTP build dependencies** (autoconf, wxWidgets, OpenGL, etc.)
 - **Hex** and **Rebar** (installed automatically)
+
+## Claude Code Authentication
+
+The template passes `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` from your host into the container via `remoteEnv`.
+
+If these variables are not set on your host, start Claude Code in the container and log in interactively:
+
+```bash
+claude
+```
 
 ## Port Forwarding
 

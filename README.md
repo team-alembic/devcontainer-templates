@@ -120,10 +120,30 @@ elixir 1.18.3-otp-27
 Both templates provide:
 
 - **asdf** version management (reads `.tool-versions`)
+- **Claude Code CLI** (`claude`)
 - **Erlang/OTP build dependencies** (autoconf, wxWidgets, OpenGL, etc.)
 - **GitHub CLI** (`gh`)
 - **Hex** and **Rebar** (installed automatically)
 - **Port 4000** forwarded for Phoenix
+
+## Claude Code authentication
+
+The templates install Claude Code and pass through host auth environment variables into the devcontainer:
+
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_AUTH_TOKEN`
+
+If either variable is set on the host before starting the container, it will be available inside the container automatically.
+
+There is no safe way for the template to auto-generate or fetch a user token on their behalf without a separate secret-management system. The supported approaches are:
+
+- run `claude` and complete interactive login in the container, or
+- provide `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN` from host or CI secrets.
+
+Future option for teams with secret infrastructure:
+
+- use Claude Code `apiKeyHelper` to execute a script that fetches short-lived credentials from your secret manager (for example Vault, cloud secret services, or an internal token broker).
+- this keeps static tokens out of repos and dotfiles, but requires your own credential backend and script management.
 
 The PostgreSQL template additionally provides:
 
