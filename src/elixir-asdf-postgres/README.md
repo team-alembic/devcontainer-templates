@@ -8,6 +8,7 @@ Elixir development environment using asdf for version management, with a Postgre
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | projectName | Project name (used for container name, workspace folder, and default database): | string | my-elixir-app |
+| installNervesBootstrap | Install Nerves Bootstrap (for Nerves IoT projects): | boolean | false |
 | postgresVersion | PostgreSQL version: | string | 17 |
 
 ## Prerequisites
