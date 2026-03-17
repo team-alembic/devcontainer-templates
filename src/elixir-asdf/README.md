@@ -8,6 +8,7 @@ Elixir development environment using asdf for version management. Reads .tool-ve
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | projectName | Project name (used for container name and workspace folder): | string | my-elixir-app |
+| installNervesBootstrap | Install Nerves Bootstrap (for Nerves IoT projects): | boolean | false |
 
 ## Prerequisites
 
