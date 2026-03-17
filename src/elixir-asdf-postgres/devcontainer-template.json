@@ -1,0 +1,28 @@
+{
+  "id": "elixir-asdf-postgres",
+  "version": "1.0.0",
+  "name": "Elixir (asdf) with PostgreSQL",
+  "description": "Elixir development environment using asdf for version management, with a PostgreSQL service container. Reads .tool-versions from your project.",
+  "documentationURL": "https://github.com/team-alembic/devcontainer-templates/tree/main/src/elixir-asdf-postgres",
+  "licenseURL": "https://github.com/team-alembic/devcontainer-templates/blob/main/LICENCE",
+  "options": {
+    "projectName": {
+      "type": "string",
+      "description": "Project name (used for container name, workspace folder, and default database):",
+      "default": "my-elixir-app"
+    },
+    "postgresVersion": {
+      "type": "string",
+      "description": "PostgreSQL version:",
+      "proposals": [
+        "17",
+        "16",
+        "15"
+      ],
+      "default": "17"
+    }
+  },
+  "platforms": [
+    "Any"
+  ]
+}

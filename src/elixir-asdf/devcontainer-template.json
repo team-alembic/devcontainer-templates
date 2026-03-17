@@ -1,0 +1,18 @@
+{
+  "id": "elixir-asdf",
+  "version": "1.0.0",
+  "name": "Elixir (asdf)",
+  "description": "Elixir development environment using asdf for version management. Reads .tool-versions from your project.",
+  "documentationURL": "https://github.com/team-alembic/devcontainer-templates/tree/main/src/elixir-asdf",
+  "licenseURL": "https://github.com/team-alembic/devcontainer-templates/blob/main/LICENCE",
+  "options": {
+    "projectName": {
+      "type": "string",
+      "description": "Project name (used for container name and workspace folder):",
+      "default": "my-elixir-app"
+    }
+  },
+  "platforms": [
+    "Any"
+  ]
+}
