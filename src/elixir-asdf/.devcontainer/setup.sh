@@ -37,6 +37,11 @@ echo "==> Setting up Hex and Rebar"
 mix local.hex --force
 mix local.rebar --force
 
+if [ "${templateOption:installNervesBootstrap}" = "true" ]; then
+  echo "==> Installing Nerves Bootstrap"
+  mix archive.install hex nerves_bootstrap --force
+fi
+
 if [ -e mix.exs ]; then
   echo "==> Fetching dependencies..."
   mix deps.get

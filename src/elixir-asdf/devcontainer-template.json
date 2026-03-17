@@ -10,6 +10,11 @@
       "type": "string",
       "description": "Project name (used for container name and workspace folder):",
       "default": "my-elixir-app"
+    },
+    "installNervesBootstrap": {
+      "type": "boolean",
+      "description": "Install Nerves Bootstrap (for Nerves IoT projects):",
+      "default": false
     }
   },
   "platforms": [

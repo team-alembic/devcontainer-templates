@@ -11,6 +11,11 @@
       "description": "Project name (used for container name, workspace folder, and default database):",
       "default": "my-elixir-app"
     },
+    "installNervesBootstrap": {
+      "type": "boolean",
+      "description": "Install Nerves Bootstrap (for Nerves IoT projects):",
+      "default": false
+    },
     "postgresVersion": {
       "type": "string",
       "description": "PostgreSQL version:",
