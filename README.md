@@ -31,12 +31,36 @@ ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres:latest
 
 ## Usage
 
+### Quick start (DevPod + dotfiles)
+
+```bash
+devcontainer templates apply \
+  --template-id ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres \
+  --template-args '{"projectName": "my_app", "postgresVersion": "17"}'
+
+devpod up . \
+  --ide vscode \
+  --dotfiles https://github.com/team-alembic/devcontainer-dotfiles.git
+```
+
 ### CLI
 
 ```bash
 devcontainer templates apply \
   --template-id ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres \
   --template-args '{"projectName": "my_app", "postgresVersion": "17"}'
+```
+
+### DevPod CLI
+
+After generating `.devcontainer/devcontainer.json`, start the workspace with DevPod:
+
+```bash
+devcontainer templates apply \
+  --template-id ghcr.io/team-alembic/devcontainer-templates/elixir-asdf-postgres \
+  --template-args '{"projectName": "my_app", "postgresVersion": "17"}'
+
+devpod up . --ide vscode
 ```
 
 ### VS Code
@@ -46,6 +70,41 @@ Open the command palette and run **Dev Containers: Add Dev Container Configurati
 ### Manual
 
 Copy the `.devcontainer/` directory from the relevant `src/` folder into your project and replace the `${templateOption:...}` placeholders with your values.
+
+## Dotfiles
+
+Team Alembic dotfiles are available at `https://github.com/team-alembic/devcontainer-dotfiles`.
+
+### VS Code
+
+Add the dotfiles settings in your user `settings.json`:
+
+```json
+{
+  "dotfiles.repository": "team-alembic/devcontainer-dotfiles",
+  "dotfiles.targetPath": "~/dotfiles",
+  "dotfiles.installCommand": "install.sh"
+}
+```
+
+### devcontainer CLI
+
+Pass the dotfiles repository when bringing the container up:
+
+```bash
+devcontainer up \
+  --workspace-folder . \
+  --dotfiles-repository https://github.com/team-alembic/devcontainer-dotfiles.git
+```
+
+### DevPod CLI
+
+Pass the same repository to DevPod:
+
+```bash
+devpod up . \
+  --dotfiles https://github.com/team-alembic/devcontainer-dotfiles.git
+```
 
 ## Prerequisites
 
