@@ -43,6 +43,9 @@ devpod up . \
   --dotfiles https://github.com/team-alembic/devcontainer-dotfiles.git
 ```
 
+Use your real app name for `projectName` when applying the template (for example `my_app`).
+This value is used for container/workspace naming, and in the PostgreSQL template also for the default database name (`<projectName>_dev`).
+
 ### CLI
 
 ```bash
@@ -150,6 +153,19 @@ The PostgreSQL template additionally provides:
 - **PostgreSQL** with health checks and persistent data volume
 - **Dialyzer PLT cache** volume (speeds up repeated analysis)
 - **Port 5432** forwarded
+
+## PostgreSQL repo configuration
+
+When the PostgreSQL template runs its setup script, it prints a reminder to configure your Repo host to use `DATABASE_HOST`.
+
+Example (`config/dev.exs` or `config/runtime.exs`):
+
+```elixir
+config :your_app, YourApp.Repo,
+  hostname: System.get_env("DATABASE_HOST", "localhost")
+```
+
+The devcontainer sets `DATABASE_HOST=db`, so this points your app at the bundled PostgreSQL service automatically.
 
 ## Development
 

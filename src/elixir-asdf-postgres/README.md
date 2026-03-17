@@ -33,10 +33,23 @@ export ASDF_ELIXIR_REPO="https://github.com/my-org/asdf-elixir.git"
 
 The template includes a PostgreSQL service container accessible from the app container at hostname `db`. The `DATABASE_HOST` environment variable is set automatically.
 
+Set `projectName` to your real app name when applying the template. It controls container/workspace naming and the default database name (`<projectName>_dev`).
+
 Default credentials:
 - **User:** `postgres`
 - **Password:** `postgres`
 - **Database:** `<projectName>_dev`
+
+## Repo Configuration
+
+During setup, the template prints a reminder to configure your Repo host to use `DATABASE_HOST`.
+
+Example (`config/dev.exs` or `config/runtime.exs`):
+
+```elixir
+config :your_app, YourApp.Repo,
+  hostname: System.get_env("DATABASE_HOST", "localhost")
+```
 
 ## Included Tools
 

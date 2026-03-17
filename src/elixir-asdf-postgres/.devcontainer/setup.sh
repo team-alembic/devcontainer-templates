@@ -47,4 +47,18 @@ if [ -e mix.exs ]; then
   mix deps.get
 fi
 
+if [ -e config/config.exs ]; then
+  cat <<'EOF'
+
+==> PostgreSQL template note
+To connect your app to the bundled PostgreSQL container, configure your Repo host
+to read DATABASE_HOST, for example in config/dev.exs or config/runtime.exs:
+
+  config :your_app, YourApp.Repo,
+    hostname: System.get_env("DATABASE_HOST", "localhost")
+
+This template sets DATABASE_HOST=db in the devcontainer.
+EOF
+fi
+
 echo "==> Setup complete!"
