@@ -22,6 +22,19 @@
     "ghcr.io/devcontainer-community/devcontainer-features/asdf-vm.com:1": {}
   },
   "onCreateCommand": "bash .devcontainer/setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "animus-coop.vscode-elixir-mix-formatter",
+        "royalmist.vscode-eex-format",
+        "jakebecker.elixir-ls",
+        "iampeterbanjo.elixirlinter",
+        "pgourlain.erlang",
+        "szTheory.erlang-formatter"
+      ]
+    }
+  },
   "remoteEnv": {
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
     "ANTHROPIC_AUTH_TOKEN": "${localEnv:ANTHROPIC_AUTH_TOKEN}",
