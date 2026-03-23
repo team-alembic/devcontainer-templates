@@ -24,15 +24,17 @@ export ASDF_ELIXIR_REPO="https://github.com/my-org/asdf-elixir.git"
 - **Erlang/OTP build dependencies** (autoconf, wxWidgets, OpenGL, etc.)
 - **Hex** and **Rebar** (installed automatically)
 
-## Claude Code Authentication
+## Claude Code
 
-The template passes `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` from your host into the container via `remoteEnv`.
+The template includes the Claude Code CLI and mounts your host's `~/.claude` directory into the container. This shares your global `CLAUDE.md` instructions, settings, and memory with the container.
 
-If these variables are not set on your host, start Claude Code in the container and log in interactively:
+Authentication environment variables (`ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN`) are passed from your host via `remoteEnv`. If these variables are not set on your host, start Claude Code in the container and log in interactively:
 
 ```bash
 claude
 ```
+
+To disable the config mount, remove the `~/.claude` mount entry from `.devcontainer/devcontainer.json`.
 
 ## Port Forwarding
 

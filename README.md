@@ -129,9 +129,21 @@ Both templates provide:
 - **Hex** and **Rebar** (installed automatically)
 - **Port 4000** forwarded for Phoenix
 
-## Claude Code authentication
+## Claude Code
 
-The templates install Claude Code and pass through host auth environment variables into the devcontainer:
+### Host configuration mount
+
+Both templates bind-mount your host's `~/.claude` directory into the container at `/home/vscode/.claude`. This shares your global `CLAUDE.md` instructions, settings, and memory with the container. The mount is read-write, so changes made inside the container (e.g. new memory entries) are reflected on the host.
+
+An `initializeCommand` ensures `~/.claude` exists on the host before the container starts. If you don't use Claude Code on the host, this creates an empty directory — no harm done.
+
+To disable the mount, remove the relevant entry after applying the template:
+- **elixir-asdf**: remove the `~/.claude` entry from `mounts` in `.devcontainer/devcontainer.json`
+- **elixir-asdf-postgres**: remove the `~/.claude` volume from `.devcontainer/docker-compose.yml`
+
+### Authentication
+
+The templates pass through host auth environment variables into the devcontainer:
 
 - `ANTHROPIC_API_KEY`
 - `ANTHROPIC_AUTH_TOKEN`

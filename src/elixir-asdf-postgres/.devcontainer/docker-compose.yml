@@ -8,6 +8,7 @@ services:
     volumes:
       - ..:/workspaces/${templateOption:projectName}:cached
       - dialyzer-plt:/home/vscode/.mix
+      - ${HOME}/.claude:/home/vscode/.claude:cached
     command: sleep infinity
     environment:
       DATABASE_HOST: db

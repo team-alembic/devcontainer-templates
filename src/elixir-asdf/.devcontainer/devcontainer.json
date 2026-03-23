@@ -3,6 +3,10 @@
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "workspaceFolder": "/workspaces/${templateOption:projectName}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${templateOption:projectName},type=bind,consistency=cached",
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached"
+  ],
+  "initializeCommand": "mkdir -p $HOME/.claude",
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {

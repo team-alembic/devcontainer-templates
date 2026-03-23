@@ -3,6 +3,7 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${templateOption:projectName}",
+  "initializeCommand": "mkdir -p $HOME/.claude",
   "forwardPorts": [4000, "db:5432"],
   "portsAttributes": {
     "4000": {
